@@ -42,6 +42,13 @@ app.get("/api/count", async (req, res) => {
   });
 });
 
+app.get("/api/list", async (req, res) => {
+  console.log("before fetch");
+  const response = await fetch('http://kxshy1ksui.execute-api.ap-northeast-2.amazonaws.com/Prod/');
+  console.log({ response });
+  res.send(response);
+});
+
 // 小程序调用，获取微信 Open ID
 app.get("/api/wx_openid", async (req, res) => {
   if (req.headers["x-wx-source"]) {
